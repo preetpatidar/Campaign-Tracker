@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 function Landing() {
+
+  // Smooth scroll fallback for anchor links
+  useEffect(() => {
+    if (window.location.hash === "#features") {
+      const el = document.getElementById("features");
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen 
                     bg-gradient-to-br 
@@ -38,7 +48,7 @@ function Landing() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="flex justify-center gap-6"
+          className="flex flex-col sm:flex-row justify-center gap-6"
         >
           <Link
             to="/app"
@@ -80,7 +90,6 @@ function Landing() {
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
 
-          {/* Card 1 */}
           <motion.div
             whileHover={{ y: -8 }}
             className="bg-white dark:bg-gray-800 
@@ -96,7 +105,6 @@ function Landing() {
             </p>
           </motion.div>
 
-          {/* Card 2 */}
           <motion.div
             whileHover={{ y: -8 }}
             className="bg-white dark:bg-gray-800 
@@ -112,7 +120,6 @@ function Landing() {
             </p>
           </motion.div>
 
-          {/* Card 3 */}
           <motion.div
             whileHover={{ y: -8 }}
             className="bg-white dark:bg-gray-800 
@@ -135,7 +142,6 @@ function Landing() {
       <div className="py-8 text-center text-sm opacity-70">
         © {new Date().getFullYear()} Campaign Tracker SaaS — Built with Django & React
       </div>
-
     </div>
   );
 }
