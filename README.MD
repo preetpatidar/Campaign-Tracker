@@ -1,5 +1,3 @@
-Paste this:
-
 🚀 Campaign Tracker SaaS
 
 A full-stack marketing campaign management system built with Django + PostgreSQL (Backend) and React + Tailwind (Frontend).
