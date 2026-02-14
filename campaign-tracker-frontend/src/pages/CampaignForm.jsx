@@ -20,7 +20,7 @@ function CampaignForm() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:8000/api/campaigns/${id}/`)
+      axios.get(`${process.env.REACT_APP_API_URL}/api/campaigns/${id}/`)
         .then(res => setCampaign(res.data));
     }
   }, [id]);
@@ -33,9 +33,9 @@ function CampaignForm() {
     e.preventDefault();
 
     if (id) {
-      await axios.put(`http://localhost:8000/api/campaigns/${id}/`, campaign);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/campaigns/${id}/`, campaign);
     } else {
-      await axios.post("http://localhost:8000/api/campaigns/", campaign);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/campaigns/`, campaign);
     }
     toast.success("Campaign saved successfully!");
 

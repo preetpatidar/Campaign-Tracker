@@ -13,12 +13,12 @@ function CampaignList() {
   }, []);
 
   const fetchCampaigns = async () => {
-    const res = await axios.get(`http://localhost:8000/api/campaigns/`);
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/campaigns/`);
     setCampaigns(res.data);
   };
 
   const deleteCampaign = async (id) => {
-    await axios.delete(`http://localhost:8000/api/campaigns/${id}/`);
+    await axios.delete(`${process.env.REACT_APP_API_URL}/api/campaigns/${id}/`);
     toast.success("Campaign deleted!");
 
     fetchCampaigns();

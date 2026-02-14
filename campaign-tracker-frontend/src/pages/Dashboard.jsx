@@ -13,7 +13,7 @@ function Dashboard() {
 
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/stats/")
+    axios.get(`${process.env.REACT_APP_API_URL}/api/stats/`)
       .then(res => {
         setData(res.data.status_counts)
         setStats(res.data)

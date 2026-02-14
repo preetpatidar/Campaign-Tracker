@@ -9,7 +9,7 @@ function News() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/news/`)
+      .get(`${process.env.REACT_APP_API_URL}/api/news/`)
       .then((res) => {
         setNews(res.data.products || []);
         setLoading(false);
